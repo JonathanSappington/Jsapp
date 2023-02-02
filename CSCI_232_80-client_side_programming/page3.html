@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>Switch</title>
+	
+		<script>
+			function functDog(){
+				var rbtns = document.getElementsByName("quantity");
+				
+				var count = -1;
+				
+				for(var c = 0; c < rbtns.length; c++)
+				{
+					if(rbtns[c].checked)
+						count = parseInt(rbtns[c].value - 1);
+				}
+				
+				switch(count){
+					case 0:
+						document.getElementById("dpix").src = "images/dpix1.jpg";
+						document.getElementById("div1").setAttribute("style","display: block; border-style: solid; border-width: 3px; border-color: red;");
+					break;
+					case 1:
+						document.getElementById("dpix").src = "images/dpix2.jpg";
+						document.getElementById("div1").setAttribute("style","display: block; border-style: solid; border-width: 3px; border-color: red;");
+					break;
+					case 2:
+						document.getElementById("dpix").src = "images/dpix3.jpg";
+						document.getElementById("div1").setAttribute("style","display: block; border-style: solid; border-width: 3px; border-color: red;");
+					break;
+				}
+			}
+			
+			function functLoad(){
+						document.getElementById("dpix").src = "images/dpix1.jpg";
+						document.getElementById("div1").setAttribute("style","display: block; border-style: solid; border-width: 3px; border-color: black;");
+						document.getElementById("rd1").focus();
+						document.getElementById("rd1").checked = "checked";
+			}
+		</script>
+		
+		<style>
+			.dogpix{width: 300px height: 300px};
+			.area1{width: 300px; height: 300px;}
+		</style>
+    </head>
+    <body>
+		<input type="radio" id="rd1" value="1" name="quantity" onclick="functDog()"> <label for="rd1">Choice 1</label> <br>
+		<input type="radio" id="rd2" value="2" name="quantity" onclick="functDog()"> Choice 2 <br>
+		<input type="radio" id="rd3" value="3" name="quantity" onclick="functDog()"> Choice 3 
+		
+		<div id="div1" class="area1">
+			<img class="dogpix" id="dpix" src="images/dpix1.jpg" style="display: block">
+		</div>
+		
+		<script>
+			functLoad();
+		</script>
+	</body>
+		
+</html>
+

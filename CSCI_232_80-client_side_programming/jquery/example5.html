@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>JSON Lab</title>
+		<link href="styles.css" rel="stylesheet" media="screen">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    </head>
+	
+    <body onload="createStoreInput()">
+		<h2>JQuery Example</h2>
+		<a href="example1.html">Example 1</a>
+		<a href="example2.html">Example 2</a>
+		<a href="example3.html">Example 3</a>
+		<a href="example4.html">Example 4</a>
+		<a href="example5.html">Example 5</a>
+
+		<p>Create a select and used two json files</p>
+		<p id="storeSelect"></p>
+		<p id="selectedStore"></p>
+		<p id="xPlaceholder"></p>
+		
+		<div id="jList">
+			
+		</div>
+		
+		<script>		
+			var mchoice = "Billings";
+			
+			function getStore()
+			{
+				mchoice = document.getElementById("storePick").value;
+				
+				loadStores();
+			}
+			
+			function createStoreInput()
+			{
+				$.getJSON('city.json',function(data){
+				
+					var output = "<select id='storePick' onchange='getStore()'>";
+					
+					for(var i in data.cityArray)
+					{
+						output += "<option value='" + data.cityArray[i].city + "'>" +
+									data.cityArray[i].city +
+									"</option>";
+					}
+					
+					output += "</select>";
+					document.getElementById("storeSelect").innerHTML = output;
+				});
+			}
+			
+			function loadStores()
+			{
+				$.getJSON('storelocations.json',function(data){
+					var output = "<table border='1'>" +
+					"<tr>" + 
+					"<td>Store</td>" +
+					"<td>City</td>" +
+					"<tr>";
+					
+					for(var i in data.storeArray)
+					{
+						if(mchoice == data.storeArray[i].city)
+						{
+							output += "<tr>" + 
+										"<td>" + data.storeArray[i].store + "</td>" +
+										"<td>" + data.storeArray[i].city + "</td>" + "<tr>";
+						}
+					}
+
+					output += "</table>";
+					document.getElementById("xPlaceholder").innerHTML = output;
+				});
+			}
+		</script>
+	</body>	
+</html>
+

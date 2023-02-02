@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>Example 1</title>
+		<link href="styles.css" rel="stylesheet" media="screen">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<script>
+		</script>
+    </head>
+	
+    <body>
+		<h2>Create an object from json</h2>
+		<a href="index.html">Home</a><br>
+		
+		<p>
+			First Name: <span id="fname"></span><br>
+			Last Name: <span id="lname"></span><br>
+		</p>
+		
+		<script>
+			var person = '{"employee":[{"fn":"John","ln":"Doe"},' + 
+			'{"fn":"Anna","ln":"Smith"},' + 
+			'{"fn":"Peter","ln":"Pan"}]}';
+									
+			var obj = eval("(" + person + ")");
+			document.getElementById("fname").innerHTML  = obj.employee[1].fn;
+			document.getElementById("lname").innerHTML  = obj.employee[1].ln;
+		</script>
+	</body>	
+</html>
+

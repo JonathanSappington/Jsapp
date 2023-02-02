@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+
+		<h1>Four was to output</h1>
+		<h3 id="myH3"></h3>
+		<p id="myP"></p>
+		<p>The message is the following: <span id="myspan"></span> </p>
+		
+		   
+		<script>
+			// Method 1 - alert
+			var myMessage = "Javascript is not fun";
+			alert(myMessage);
+			
+			// Method 2 - write to page
+			//document.write(myMessage);
+			
+			// Method 3 - preferred method
+			document.getElementById("myH3").innerHTML = myMessage;
+			document.getElementById("myP").innerHTML = myMessage;
+			document.getElementById("myspan").innerHTML = myMessage;
+			
+			// Method 4 - console
+			console.log("This is the console: " + myMessage);
+		</script>
+    </body>
+</html>
+

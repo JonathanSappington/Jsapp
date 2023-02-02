@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>Turtle Creator</title>
+		<link href="styles.css" rel="stylesheet" media="screen">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<style>
+			body{
+				background-color: #F2EDD5;
+			}
+			.zDiv{
+					border: 5px outset #8C1F42;
+					background-color: #330510;
+					color:white;
+					text-align: center;
+					width: 200px;
+					padding: 3px;
+					margin: 10px;
+					float: left;
+			}
+
+			.zDiv:hover{
+				background-color: #808026;
+			}
+			
+			.hd1
+			{
+				border: 5px outset #808026;
+				margin:auto;
+				width: 40%;
+				height: 580px;
+				padding: 20px;
+				background-color: #330E05;
+				color:white;
+			}
+			
+			.topDiv
+			{
+				margin: 20px;
+			}
+			
+			#myDiv{
+				margin: auto;
+				width: 80%;
+			}
+			
+			.fieldName{display: grid; grid-template-rows: auto; grid-template-columns: 10em 1fr, 10em; padding-left: 1em;}
+			#submission{display: grid; grid-template-rows: auto; grid-template-columns: 1fr 1fr; padding-left: 1em;}
+		</style>
+    </head>
+    <body>
+		<div id="topDiv">&nbsp;</div>
+		<div class="hd1">
+			<!-- Custom Turtle form -->
+			<h1>Custom Turtle</h1>
+			<div class="fieldContainer">
+				<div class="fieldName">
+					<label  for="name">Turtle Name</label>
+					<input  type="text" id="name" name = "name"onfocus="hideWarningBox('name')"placeholder="">
+					<span id="ename"></span>
+				</div>
+			</div>
+			
+			<div class="fieldContainer">
+				<div class="fieldName">
+					<label  for="age">Turtle Age</label>
+					<input  type="text" id="age" name = "age"onfocus="hideWarningBox('age')"placeholder="">
+					<span id="eage"></span>
+				</div>
+			</div>
+			
+			<div class="fieldContainer">
+				<div class="fieldName">
+					<label  for="color">Turtle Color</label>
+					<input  type="text" id="color" name = "color"onfocus="hideWarningBox('color')"placeholder="">
+					<span id="ecolor"></span>
+				</div>
+			</div>
+			
+			<div class="fieldContainer">
+				<div class="fieldName">
+					<label  for="food">Turtle Fav Food</label>
+					<input  type="text" id="food" name = "food"onfocus="hideWarningBox('food')"placeholder="">
+					<span id="efood"></span>
+				</div>
+			</div>
+			
+			<div id="submission">
+				<input type="submit" id="submit" name="submit" value="send" onclick="addTurtle()">
+				<input type="reset" id="reset" name="reset" value="reset">
+			</div>
+			
+			<!-- Random Turtle Generator -->
+			<h1>Turtles</h1>
+			<p>Number of Turtles: <input type="text" value="7" id="tnum"> &nbsp;&nbsp;
+			<button onclick="makeTurtles()">Make Turtles</button>
+			<button onclick="clearScreen()">Clear Screen</button> <br>
+			<h1>Turtle Info</h1>
+			<span id="sp1"></span> <br></p>
+		</div>
+		
+		<p id="zinfo"></p>
+		<br>
+		<div id="myDiv"></div>
+		
+		<script>
+			//Turtle object attributes
+			var turtleColors = ["Red","Green","Blue","Black","Grey"];
+			var turtleAge = [46,78,42,31,21];
+			var turtleName = ["Michael","Susan","Rachel","Barry","Bruce","Samuel"];
+			var turtleFood = ["Turtle Bites","Swamp Crunch","Moss Mush","Fish Fillet","Marsh Munch","Fog Food","Crispy Crickets"];
+			
+			var myTurtles = [];
+			
+			//Creates turtle object with attributes name, age, color, and favFood
+			function Turtle(name,age,color,food)
+			{
+				this.name = name;
+				this.age = age;
+				this.color = color;
+				this.food = food;
+				
+				this.info = function(){
+					return this.name + " " + this.age + " " + this.color + " " + this.food;
+				}
+
+			}
+			
+			//Clears all turtle objects from webpage
+			function clearScreen() {document.getElementById("myDiv").innerHTML = ""};
+			
+			function makeTurtles()
+			{
+				var numTurtles = parseInt(document.getElementById("tnum").value); // Total turtle object count
+				
+				myTurtles.length = 0; // Resets turtle count
+				
+				for(var c = 0; c < numTurtles; c++){
+					var tn = turtleName[Math.floor(Math.random() * turtleName.length)]; // Adds random name attribute to turtle object
+					var ta = turtleAge[Math.floor(Math.random() * turtleAge.length)]; // Adds random age attribute to turtle object
+					var tc = turtleColors[Math.floor(Math.random() * turtleColors.length)]; // Adds random color attribute to turtle object
+					var tf = turtleFood[Math.floor(Math.random() * turtleFood.length)]; // Adds random food attribute to turtle object
+				
+					var aTurtle = new Turtle(tn,ta,tc,tf); // Creates turtle object
+					
+					myTurtles.push(aTurtle); // Adds turtle to list
+				}
+				
+				for(var c = 0; c < myTurtles.length; c++){
+					var xx = myTurtles[c];
+					
+					showTurles(xx);
+				}
+			}
+			
+			function addTurtle()
+			{
+				var name = document.getElementById("name"); // References name element in webpage
+				var age = document.getElementById("age"); // References age element in webpage
+				var color = document.getElementById("color"); // References color element in webpage
+				var food = document.getElementById("food"); // References food element in webpage
+				
+				// Checks whether turtle form has any errors
+				var reason = "";
+				
+				reason += validate(name,"ename",0,20,/[\d\W]/g);
+				reason += validate(age,"eage",0,4,/[\D\W]/g);
+				reason += validate(color,"ecolor",0,20,/[\d\W]/g);
+				reason += validate(food,"efood",0,20,/[\d\W]/g);
+				
+				if(reason != "")
+					return false;
+				
+				// If no errors found than add turtle form data to trutle object
+				var tn = name.value;
+				var ta = age.value;
+				var tc = color.value;
+				var tf = food.value;
+				
+				name.value = "";
+				age.value = "";
+				color.value = "";
+				food.value = "";
+				
+				var aTurtle = new Turtle(tn,ta,tc,tf);
+				showTurles(aTurtle);
+			}
+			
+			// Field the field that will be edited by the function
+			// Name is the error id for the field
+			// Minlimit the minimum character limit a field can have
+			// Maxlimit the maximum character limit a field can have
+			// ichars the set illegal characters the field should deny
+			function validate(field, name, minLimit, maxLimit, ichars)
+			{
+				var error = "";
+				var illegalChars = ichars;
+				
+				if(field.value == "") // If field contains an empty string then display error
+				{
+					field.style.border = "1px solid red";
+					document.getElementById(name).innerHTML = "Error - Field is empty";
+					document.getElementById(name).style.background = "red";
+					error = "1";
+				}
+				else if((field.value.length >= maxLimit && maxLimit != 0)) // If a fields length is >= the max limit and if maxlimit doesn't eqaul 0 then display error
+				{
+					field.style.border = "1px solid red";
+					document.getElementById(name).innerHTML = "Error - Field is too long";
+					document.getElementById(name).style.background = "red";
+					error = "1";
+				}
+				else if(field.value.length < minLimit) // If a fields length is less then min limit then display error
+				{
+					field.style.border = "1px solid red";
+					document.getElementById(name).innerHTML = "Error - Field is too short";
+					document.getElementById(name).style.background = "red";
+					error = "1";
+				}
+				else if(illegalChars.test(field.value)) // If a field contains illegal characters then display error
+				{
+					field.style.border = "1px solid red";
+					document.getElementById(name).innerHTML = "Error - Field contains illegal Characters";
+					document.getElementById(name).style.background = "red";
+					error = "1";
+				}
+				else // If no errors found then change the display
+				{
+					field.style.border = "1px solid #ccc";
+					document.getElementById(name).innerHTML = "";
+					document.getElementById(name).style.background = "#00000000";
+				}
+				
+				return error;
+			}
+			
+			function hideWarningBox(tagID)
+			{
+				// If box is focused on then remove error message
+				document.getElementById(tagID).style.border = "1px solid #ccc";
+				document.getElementById(tagID).placeholder = "";
+				document.getElementById("e" + tagID).innerHTML = "";
+				document.getElementById("e" + tagID).style.background = "#00000000";
+			}
+
+			function showTurles(object)
+			{
+				var aDiv = document.createElement("div"); // Creates new div for turtle
+				aDiv.className = "zDiv";
+				
+				var nameDiv = document.createElement("div"); // Creates new name div for turtle
+				nameDiv.innerHTML = "Name: " + object.name;
+				
+				var ageDiv = document.createElement("div"); // Creates new age div for turtle
+				ageDiv.innerHTML = "Age: " + object.age;
+				
+				var colorDiv = document.createElement("div"); // Creates new color div for turtle
+				colorDiv.innerHTML = "Color: " + object.color;
+				
+				var foodDiv = document.createElement("div"); // Creates new food div for turtle
+				foodDiv.innerHTML = "Fav Food: " + object.food;
+				
+				// Appends all attributes to the initial aDiv created
+				aDiv.appendChild(nameDiv);
+				aDiv.appendChild(ageDiv);
+				aDiv.appendChild(colorDiv);
+				aDiv.appendChild(foodDiv);
+				
+				aDiv.addEventListener("click", function(){
+					// Same process as before but appended to the sp1 div tag
+					/* Note* cannot use original div tag variables, "nameDiv,ageDiv,colorDiv and foodDiv", 
+						due to elements getting erased from aDiv when appending to sp1*/
+					var tName = document.createElement("div");
+					tName.innerHTML = "Name: " + object.name;
+					
+					var tAge = document.createElement("div");
+					tAge.innerHTML = "Age: " + object.age;
+					
+					var tColor = document.createElement("div");
+					tColor.innerHTML = "Color: " + object.color;
+					
+					var tFood = document.createElement("div");
+					tFood.innerHTML = "Fav Food: " + object.food;
+				
+					document.getElementById("sp1").innerHTML = "";
+					document.getElementById("sp1").appendChild(tName);
+					document.getElementById("sp1").appendChild(tAge);
+					document.getElementById("sp1").appendChild(tColor);
+					document.getElementById("sp1").appendChild(tFood);
+				});
+				
+				// append aDiv to myDiv element
+				document.getElementById("myDiv").appendChild(aDiv);
+			}
+		</script>
+	</body>	
+</html>
+

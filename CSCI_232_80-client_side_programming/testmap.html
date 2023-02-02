@@ -1,0 +1,251 @@
+NEXT CLASS = alternative to to isNan
+walk through other form validation
+next lab
+
+<!DOCTYPE html>
+<htm>
+<head>
+<title>form validation 1</title>
+
+<script>
+    
+    function validateFormOnSubmit(theForm)
+    {
+        var reason = "";
+
+        reason += validateUsername(theForm.username);
+        reason += validatePassword(theForm.pwd);
+        reason += validatePhone(theForm.phone);
+        reason += validateEmail(theForm.email);
+    
+        if(reason != "")
+        {
+            alert("Some fields need corrections:\n" + reason);
+            return false;
+}
+
+        return true;
+}
+
+    function validateUsername(fld)
+    {
+        var error = "";
+        var illegalChars = /\W/;
+
+        if(fld.value == "")
+        {
+            fld.style.background = 'Yellow';
+            error = "Your username is empty.\n";
+}
+else if (fld.value.length < 5 || fld.value.length > 15)
+{
+    fld.style.background = 'Yellow';
+            error = "username must be > 5 and < 16\n";
+}
+else if (illegalChars.test(fld.value) )
+{
+    fld.style.background = 'Yellow';
+            error = "username contains illegal characters\n";
+}
+else
+{
+    fld.style.background = 'White';
+}
+
+
+        return error;
+}
+
+
+    function validatePassword(fld)
+    {
+        var error = "";
+        var illegalChars = /[\W_]/;
+
+        if(fld.value == "")
+        {
+            fld.style.background = 'Yellow';
+            error = "Your password is empty.\n";
+}
+else if (fld.value.length < 7 || fld.value.length > 15)
+{
+    fld.style.background = 'Yellow';
+            error = "password must be > 5 and < 16\n";
+}
+else if (illegalChars.test(fld.value) )
+{
+    fld.style.background = 'Yellow';
+            error = "username contains illegal characters\n";
+}
+else if ((fld.value.search(/[A-z]/)== -1) || (fld.value.search(/[0-9]/)==-1))
+{
+    fld.style.background = 'Yellow';
+            error = "password must contain letters and numbers\n";
+}
+else
+{
+    fld.style.background = 'White';
+}
+
+
+        return error;
+}
+
+
+    function validatePhone(fld)
+    {
+        var error = "";
+        var stripped = fld.value.replace(/[\(\)\.\-\ ]/g,'');
+
+        console.log(stripped);
+
+        if(fld.value == "")
+        {
+            fld.style.background = 'Yellow';
+            error = "Your phone is empty.\n";
+}
+else if(isNaN(parseInt(stripped)))
+{
+    fld.style.background = 'Yellow';
+    error = "Your phone contains illegal characters.\n";
+}
+else if(!(stripped.length == 10))
+{
+    fld.style.background = 'Yellow';
+    error = "Your phone number is the wrong length.\n";
+}
+else
+{
+    fld.style.background = 'White';
+}
+
+
+        return error;
+}
+
+    
+
+    function validateEmail(fld)
+    {
+        var error = "";
+        var tfld = fld.value.trim();
+        //var emailFilter = /^[^@]+@[^@.]+\.[^@]*\w\w$/;
+        var emailFilter = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+           var illegalChars = /[\(\)\<\>\,\;\\\:\"\[\]]/;
+
+        if(fld.value=="")
+        {
+            fld.style.background = 'Yellow';
+            error = "Your email is empty.\n";
+}
+else if(!emailFilter.test(tfld))
+{
+    fld.style.background = 'Yellow';
+    error = "enter valid email address";
+}
+else if(fld.value.match(illegalChars))
+{
+    fld.style.background = 'Yellow';
+    error = "email address has illegal chars";
+}
+else
+{
+    fld.style.background = 'White';
+}
+
+return error;
+
+}
+
+
+</script>
+
+
+
+ </head>
+ <body>
+
+
+<h1>Form Validation</h1>
+
+<form action="text.html" onsubmit="return validateFormOnSubmit(this)" name="demo">
+
+
+<table>
+    <tr>
+        <td><label for="username">Your username:</label></td>
+        <td><input type="text" name="username" id="username" 
+size="35" maxlength="50"></td>
+    </tr>
+    <tr>
+        <td><label for="pwd">Your password:</label></td>
+        <td><input type="password" name="pwd" id="pwd" 
+size="35" maxlength="50"></td>
+    </tr>
+    <tr>
+        <td><label for="email">Your email:</label></td>
+        <td><input type="text" name="email" id="email" 
+size="35" maxlength="50"></td>
+    </tr>
+    <tr>
+        <td><label for="email2">Your email2:</label></td>
+        <td><input type="email" name="email2" id="email2" 
+size="35" maxlength="50" required></td>
+    </tr>
+    <tr>
+        <td><label for="phone">Your phone:</label></td>
+        <td><input type="text" name="phone" id="phone" 
+size="35" maxlength="50"></td>
+    </tr>
+
+    <tr>
+        <td><label for="phone2">Your telephone:</label></td>
+        <td><input type="tel" name="phone2" id="phone2" 
+size="35" maxlength="50"></td>
+    </tr>
+<tr>
+        <td><label for="from">Where you from:</label></td>
+        <td><input type="text" name="from" id="from" 
+size="35" maxlength="50"></td>
+    </tr>
+
+    <tr>
+        <td>&nbsp;</td>
+        <td><input type="submit" value="Send"></td>
+    </tr>
+
+</table>
+
+</form>
+</body>
+</html>
+
+<!---  text.html -->
+<!DOCTYPE html>
+<htm>
+<head>
+<title>arrays</title>
+
+    <script>
+        
+    </script>
+
+
+
+ </head>
+ <body>
+
+
+<h1>Successful Test</h1>
+
+<p>our form was correct!</p>
+
+
+</body>
+</htm>
+
+
+
+
+
+
