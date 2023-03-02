@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>Item Entry</title>
+		<link href="styles.css" rel="stylesheet" media="screen">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+		<script>
+			function warningNumber(tagID)
+			{
+				// If onblur is active and the wrong format is found then display error
+				validateNumber(document.getElementById(tagID),"e" + tagID,/[0-9]{7}\-[0-9]{3}\.[0-9]{3}/)
+			}
+		
+			function warning(tagID, minLimit, maxLimit, ichars)
+			{
+				// If onblur is active and error is found then display error
+				validate(document.getElementById(tagID),"e" + tagID,minLimit,maxLimit,ichars)
+			}
+			
+			function validateFormOnSubmit(form)
+			{
+				var reason = "";
+				
+				reason += validate(form.itemName,"eitemName",0,20,/\W/);
+				reason += validateNumber(form.itemNum,"eitemNum",/[0-9]{7}\-[0-9]{3}\.[0-9]{3}/);
+				reason += validate(form.itemPrice,"eitemPrice",0,0,/\D/);
+				reason += validate(form.itemSerial,"eitemSerial",9,10,/[\W + a-z]/g);
+				
+				if(reason != "")
+					return false;
+				
+				return true;
+			}
+			
+			// Field the field that will be edited by the function
+			// Name is the error id for the field
+			// Filter is the format that the field should follow
+			function validateNumber(field, name, filter)
+			{
+				var error = "";
+
+				if(!filter.test(field.value)) // If format is incorrect then display error
+				{
+					field.style.border = "1px solid red";
+					document.getElementById(name).innerHTML = "Error - Reformat to 0000000-000.000";
+					error = "1";
+					document.getElementById(name).style.background = "#2F3556";
+				}
+				else
+				{
+					field.style.border = "1px solid #ccc";
+					document.getElementById(name).innerHTML = "";
+					document.getElementById(name).style.background = "#00000000";
+				}
+				
+				return error;
+			}
+			
+			// Field the field that will be edited by the function
+			// Name is the error id for the field
+			// Minlimit the minimum character limit a field can have
+			// Maxlimit the maximum character limit a field can have
+			// ichars the set illegal characters the field should deny
+			function validate(field, name, minLimit, maxLimit, ichars)
+			{
+				var error = "";
+				var illegalChars = ichars;
+
+				if(field.value == "") // If field contains an empty string then display error
+				{
+					field.style.border = "1px solid red";
+					document.getElementById(name).innerHTML = "Error - Field is empty";
+					error = "1";
+					document.getElementById(name).style.background = "#2F3556";
+				}
+				else if((field.value.length >= maxLimit && maxLimit != 0)) // If a fields length is >= the max limit and if maxlimit doesn't eqaul 0 then display error
+				{
+					field.style.border = "1px solid red";
+					document.getElementById(name).innerHTML = "Error - Field is too long";
+					error = "1";
+					document.getElementById(name).style.background = "#2F3556";
+				}
+				else if(field.value.length < minLimit) // If a fields length is less then min limit then display error
+				{
+					field.style.border = "1px solid red";
+					document.getElementById(name).innerHTML = "Error - Field is too short";
+					error = "1";
+					document.getElementById(name).style.background = "#2F3556";
+				}
+				else if(illegalChars.test(field.value)) // If a field contains illegal characters then display error
+				{
+					field.style.border = "1px solid red";
+					document.getElementById(name).innerHTML = "Error - Field contains illegal Characters";
+					error = "1";
+					document.getElementById(name).style.background = "#2F3556";
+				}
+				else // If no errors found then change the display
+				{
+					field.style.border = "1px solid #ccc";
+					document.getElementById(name).innerHTML = "";
+					document.getElementById(name).style.background = "#00000000";
+				}
+				
+				return error;
+			}
+			
+			function hideWarningBox(tagID)
+			{
+				// If box is focused on then remove error message
+				document.getElementById(tagID).style.border = "1px solid #ccc";
+				document.getElementById(tagID).placeholder = "";
+				document.getElementById("e" + tagID).innerHTML = "";
+				document.getElementById("e" + tagID).style.background = "#00000000";
+			}
+		</script>
+    </head>
+    <body>
+		<h1>Item Entry</h1>
+		<nav>
+			<a href="index.html">Home</a>
+			<a href="vehicle-registration.html">Vehicle Registration</a>
+			<a href="item-entry.html">Item Entry</a>
+		</nav>
+		<form action="confirmation.html" onsubmit="return validateFormOnSubmit(this)" name="demo">
+			<div class="fieldContainer">
+				<div class="fieldName">
+					<label  for="itemName">Item Name</label>
+					<input  type="text" 
+							id="itemName"
+							name = "itemName"
+							onfocus="hideWarningBox('itemName')"
+							onblur="warning('itemName',0,20,/\W/)"
+							placeholder="">
+					<span id="eitemName"></span>
+				</div>
+			</div>
+			
+			<div class="fieldContainer">
+				<div class="fieldName">
+					<label  for="itemNum">Item Number</label>
+					<input  type="text" 
+							id="itemNum"
+							name = "itemNum"
+							onfocus="hideWarningBox('itemNum')"
+							onblur="warningNumber('itemNum')"
+							placeholder="">
+					<span id="eitemNum"></span>
+				</div>
+			</div>
+		
+			<div class="fieldContainer">
+				<div class="fieldName">
+					<label  for="itemPrice">Item Price</label>
+					<input  type="text" 
+							id="itemPrice"
+							name = "itemPrice"
+							onfocus="hideWarningBox('itemPrice')"
+							onblur="warning('itemPrice',0,0,/\D/)"
+							placeholder="">
+							
+					<span id="eitemPrice"></span>
+				</div>
+			</div>
+		
+			<div class="fieldContainer">
+				<div class="fieldName">
+					<label  for="itemSerial">Item serial number</label>
+					<input  type="text" 
+							id="itemSerial"
+							name = "itemSerial"
+							onfocus="hideWarningBox('itemSerial')"
+							onblur="warning('itemSerial',9,10,/[\W + a-z]/g)"
+							placeholder="">
+							
+					<span id="eitemSerial"></span>
+				</div>
+			</div>
+			
+			<div class="fieldContainer">
+				<div class="fieldName">
+					<label>Description</label>
+					<textarea></textarea>
+				</div>
+			</div>
+			<div id="submission">
+				<input type="submit" id="submit" name="submit" value="send">
+				<input type="reset" id="reset" name="reset" value="reset">
+			</div>
+		</form>
+	</body>
+		
+</html>
+

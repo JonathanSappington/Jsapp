@@ -1,0 +1,103 @@
+@charset "UTF-8";
+/* CSS Document */
+
+p
+	{
+		text-indent: 10px;
+		font-size: 1.2em;
+	}
+
+body
+	{
+		background-color: #454D7D;
+		color: #fff;
+		
+		font-family: sans-serif;
+		line-height: 25px;
+		clear: both;
+		
+		background: url('images/background.png') fixed center #454D7D;
+		background-size: 100%;
+	}
+	
+ul{font-size: 1.2em;}
+	
+nav ul
+	{
+		font-size: 1em;
+		list-style-type: none;
+		margin: 0;
+		padding: 10px;
+		overflow: hidden;
+	}
+	
+ul li 
+	{
+		margin-top: 195px;
+		float: right;
+		margin-top: 0px;
+	}
+
+nav li a 
+	{
+		font-size: 1.5em;
+		display: block;
+		color: #2E6D94;
+		
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+	}
+	
+a:link, a:visited{color: #FFF;}
+a:hover, a:active{color: #ABB0C9;}
+
+#wrapper main, #wrapper nav
+	{
+		width:80%;
+		height: 100%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	
+input, select
+	{
+		background-color: #2F3556;
+		
+		color: white;
+		font-size: 1em;
+	}
+	
+body
+{
+	margin: auto;
+	width: 75%;
+	padding: 25px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.fieldName span{
+	background: #00000000;
+	color: white;
+	width: 275px;
+	white-space: nowrap;
+	height:25px;
+	margin-top:-110px;
+	margin-left:200px;
+}
+
+
+input, label, .class{
+  padding: 12px;
+  height: 100px;
+  border: 1px solid #ccc;
+  margin: 0;
+}
+
+
+.fieldName{display: grid; grid-template-rows: auto; grid-template-columns: 10em 1fr; padding-left: 1em;}
+#submission{display: grid; grid-template-rows: auto; grid-template-columns: 1fr 1fr; padding-left: 1em;}
+nav{margin: 10px;}

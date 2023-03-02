@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>Vehicle Registration</title>
+		<link href="styles.css" rel="stylesheet" media="screen">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+		<script>			
+			function validateFormOnSubmit(form)
+			{
+				var reason = "";
+				
+				reason += validate(form.fname,"efname",0,20,/\W/);
+				reason += validate(form.lname,"elname",0,20,/\W/);
+				reason += validate(form.make,"emake",0,0,/[\d\W]/g);
+				reason += validate(form.model,"emodel",0,0,/\W/);
+				reason += validate(form.year,"eyear",4,5,/\D/);
+				reason += validate(form.number,"enumber",0,0,/[\W+a-z+o+O]/);
+				
+				if(reason != "")
+					return false;
+				
+				return true;
+			}
+			
+			// Field the field that will be edited by the function
+			// Name is the error id for the field
+			// Minlimit the minimum character limit a field can have
+			// Maxlimit the maximum character limit a field can have
+			// ichars the set illegal characters the field should deny
+			function validate(field, name, minLimit, maxLimit, ichars)
+			{
+				var error = "";
+				var illegalChars = ichars;
+				
+				if(field.value == "") // If field contains an empty string then display error
+				{
+					field.style.border = "1px solid red";
+					document.getElementById(name).innerHTML = "Error - Field is empty";
+					document.getElementById(name).style.background = "#2F3556";
+					error = "1";
+				}
+				else if((field.value.length >= maxLimit && maxLimit != 0)) // If a fields length is >= the max limit and if maxlimit doesn't eqaul 0 then display error
+				{
+					field.style.border = "1px solid red";
+					document.getElementById(name).innerHTML = "Error - Field is too long";
+					document.getElementById(name).style.background = "#2F3556";
+					error = "1";
+				}
+				else if(field.value.length < minLimit) // If a fields length is less then min limit then display error
+				{
+					field.style.border = "1px solid red";
+					document.getElementById(name).innerHTML = "Error - Field is too short";
+					document.getElementById(name).style.background = "#2F3556";
+					error = "1";
+				}
+				else if(illegalChars.test(field.value)) // If a field contains illegal characters then display error
+				{
+					field.style.border = "1px solid red";
+					document.getElementById(name).innerHTML = "Error - Field contains illegal Characters";
+					document.getElementById(name).style.background = "#2F3556";
+					error = "1";
+				}
+				else // If no errors found then change the display
+				{
+					field.style.border = "1px solid #ccc";
+					document.getElementById(name).innerHTML = "";
+					document.getElementById(name).style.background = "#00000000";
+				}
+				
+				return error;
+			}
+			
+			function hideWarningBox(tagID)
+			{
+				// If box is focused on then remove error message
+				document.getElementById(tagID).style.border = "1px solid #ccc";
+				document.getElementById(tagID).placeholder = "";
+				document.getElementById("e" + tagID).innerHTML = "";
+				document.getElementById("e" + tagID).style.background = "#00000000";
+			}
+		</script>
+    </head>
+    <body>
+		<h1>Vehicle Registration</h1>
+		<nav>
+			<a href="index.html">Home</a>
+			<a href="vehicle-registration.html">Vehicle Registration</a>
+			<a href="item-entry.html">Item Entry</a>
+		</nav>
+		<form action="confirmation.html" onsubmit="return validateFormOnSubmit(this)" name="demo">
+			<div class="fieldContainer">
+				<div class="fieldName">
+					<label  for="fname">Owner First Name</label>
+					<input  type="text" 
+							id="fname"
+							name = "fname"
+							onfocus="hideWarningBox('fname')"
+							placeholder="">
+					<span id="efname"></span>
+				</div>
+			</div>
+			
+			<div class="fieldContainer">
+				<div class="fieldName">
+					<label  for="lname">Owner Last Name</label>
+					<input  type="text" 
+							id="lname"
+							name = "lname"
+							onfocus="hideWarningBox('lname')"
+							placeholder="">
+					<span id="elname"></span>
+				</div>
+			</div>
+		
+			<div class="fieldContainer">
+				<div class="fieldName">
+					<label  for="make">Car Make</label>
+					<input  type="text" 
+							id="make"
+							name = "make"
+							onfocus="hideWarningBox('make')"
+							placeholder="">
+							
+					<span id="emake"></span>
+				</div>
+			</div>
+		
+			<div class="fieldContainer">
+				<div class="fieldName">
+					<label  for="model">Car Model</label>
+					<input  type="text" 
+							id="model"
+							name = "model"
+							onfocus="hideWarningBox('model')"
+							placeholder="">
+							
+					<span id="emodel"></span>
+				</div>
+			</div>
+		
+			<div class="fieldContainer">
+				<div class="fieldName">
+					<label  for="year">Car Year</label>
+					<input  type="text" 
+							id="year"
+							name = "year"
+							onfocus="hideWarningBox('year')"
+							placeholder="">
+							
+					<span id="eyear"></span>
+				</div>
+			</div>
+		
+			<div class="fieldContainer">
+				<div class="fieldName">
+					<label  for="number">Vin Number</label>
+					<input  type="text" 
+							id="number"
+							name = "number"
+							onfocus="hideWarningBox('number')"
+							placeholder="">
+							
+					<span id="enumber"></span>
+				</div>
+			</div>
+			
+			<div class="fieldContainer">
+				<div class="fieldName">
+					<label for="memo">Memo</label>
+					<textarea></textarea>
+				</div>
+			</div>
+			<div id="submission">
+				<input type="submit" id="submit" name="submit" value="send">
+				<input type="reset" id="reset" name="reset" value="reset">
+			</div>
+		</form>
+	</body>
+		
+</html>
+

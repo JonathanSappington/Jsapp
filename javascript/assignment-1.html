@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+		<title>Assignment 1</title>
+	
+		<script>
+			function calcTotal(){
+				// Rbtns gets all radio buttons with the name quantity
+				// Count is used for the switch to differentiate which radio button is active
+				var rbtns = document.getElementsByName("quantity");
+				var count = -1;
+				
+				// Checks for active radio button
+				for(var c = 0; c < rbtns.length; c++)
+				{
+					if(rbtns[c].checked)
+						count = c;
+				}
+				
+				// Checks the active radio button and sets the element with the age id to the corrosponding word
+				switch(count){
+					case 0:
+						document.getElementById("age").innerHTML = "Free";
+					break;
+					case 1:
+						document.getElementById("age").innerHTML = "Teen";
+					break;
+					case 2:
+						document.getElementById("age").innerHTML = "Adult";
+					break;
+					case 3:
+						document.getElementById("age").innerHTML = "Senior";
+					break;
+				}
+				
+				// X calculates the value of the active radio button
+				// Y calculates the value of the tickets
+				var x = parseFloat(rbtns[count].value);
+				var y = parseFloat(document.getElementById("tickets").value);
+				
+				// Assigns total to the element with the total id
+				var total = document.getElementById("total");
+				
+				// if x * y is greater than or equal to 0 than multiply the radio button value by the ticket quantity
+				// if a negative value is entered than set ticket quantity to 0
+				if(x * y >= 0)
+					total.innerHTML = "$" + (x * y);
+				else
+					document.getElementById("tickets").value = 0;
+				
+				thermometer();
+			}
+			
+			function thermometer(){
+				// Total gets the total calculated and ignores the $ sign
+				var total = parseFloat(document.getElementById("total").textContent.substring(1,document.getElementById("total").textContent.length));
+				
+				// Limits total thermometer width to 1000
+				if(total > 1000)
+					total = 1000;
+				
+				// Box is assigned to the thermometer
+				// Width controls the thermometers width
+				var box = document.getElementById("box");
+				var width = "width: " + (total / 1000) * 100 + "%;";
+				
+				// if total is below 50 update box width to total collected and color gradient to red
+				// if total is above 50 or below 75 set color gradient to red and yellow
+				// if total is above 75 or below 95 set color gradient to red, yellow and green
+				// if total is above 95 set color gradient to red, yellow, green, blue
+				if((total / 1000) * 100 <= 50){
+					box.setAttribute("style", width + "background-image: linear-gradient(to right, red,red)");
+				}
+				else if((total / 1000) * 100 > 50 && (total / 1000) * 100 <= 75){
+					box.setAttribute("style", width + "background-image: linear-gradient(to right, red,yellow)");
+				}
+				else if((total / 1000) * 100 > 75 && (total / 1000) * 100 <= 95){
+					box.setAttribute("style", width + "background-image: linear-gradient(to right, red,yellow,green)");
+				}
+				else if((total / 1000) * 100 > 95){
+					box.setAttribute("style", width + "background-image: linear-gradient(to right, red,yellow,green,blue)");
+				}
+			}
+			
+			function initialize()
+			{
+				// Sets the default radio button
+				var rbtns = document.getElementsByName("quantity");
+				rbtns[0].checked = true;
+				
+				// Sets ticket quantity to 0
+				document.getElementById("tickets").value = 0;
+				
+				calcTotal();
+			}
+		</script>
+		
+		<style>
+			body
+			{
+				margin: auto;
+				width: 75%;
+			}
+			
+			* {
+			  box-sizing: border-box;
+			}
+			
+			input[type=text], select, textarea,.row label, .row p, .row span {
+			  width: 100%;
+			  height: 50px;
+			  padding: 12px;
+			  border: 1px solid #ccc;
+			  resize: vertical;
+			  margin: 0px;
+			}
+
+			label {
+			  padding: 12px 12px 12px 0;
+			  display: inline-block;
+			}
+
+			.row label, .row p {
+			  float: left;
+			  width: 25%;
+			  margin-top: 6px;
+			}
+
+			.row input, .row span {
+			  float: left;
+			  width: 25%;
+			  margin-top: 6px;
+			}
+			
+			.row:after {
+			  content: "";
+			  display: table;
+			  clear: both;
+			}
+			
+			#box{
+				height: 50px;
+				padding: 12px;
+			}
+		</style>
+    </head>
+    <body>
+		<!-- Radio buttons for determining age -->
+		<label for="rd1"><input type="radio" id="rd1" value="0" name="quantity" onclick="calcTotal()">0-8 are Free</label> <br>
+		<label for="rd2"><input type="radio" id="rd2" value="5" name="quantity" onclick="calcTotal()">9-18 are $5 - Teen</label> <br>
+		<label for="rd3"><input type="radio" id="rd3" value="10" name="quantity" onclick="calcTotal()">18–70 are $10 - Adult</label> <br>
+		<label for="rd4"><input type="radio" id="rd4" value="7" name="quantity" onclick="calcTotal()">71 and greater are $7 - Senior</label> <br>
+		
+		<!-- Displays the customers age group -->
+		<div class="row">
+		  <p>Age</p> 
+		  <span id="age">Free</span>
+		</div>
+		
+		<!-- Input field for ticket quantity -->
+		<div class="row">
+			<label for="tickets">Number of Tickets</label>
+			<input type="text" id="tickets" value="" onchange="calcTotal()">
+		</div>
+			
+		<!-- Display total for customer age * ticket quantity -->
+		<div class="row">
+			<p>Total</p>
+			<span id="total">0</span>
+		</div>
+		
+		<!-- thermometer for $1000 goal -->
+		<p>Goal: $1000</p>
+		<div id="box"></div>
+
+		<script>
+			initialize();
+		</script>
+	</body>	
+</html>
+
