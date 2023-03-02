@@ -1,0 +1,115 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* ---------------------------------------------------- */
+.l1header
+	{
+		background-color: #93CB67;
+		height: 200px;
+	}
+
+.l1nav
+	{
+		background-color: #96CBCB;
+		height: 460px;
+		width: 300px;
+		float:left;
+	}
+	
+.l1content
+	{
+		background-color: #F9FE19;
+		height: 400px;
+		width: 540px;
+		padding: 30px;
+		float:right;
+	}
+	
+.l1footer
+	{
+		background-color: #949A10;
+		height: 100px;
+		clear:both;
+	}
+	
+/* ---------------------------------------------------- */
+
+.l2logo
+	{
+		background-color: #9C2BC9;
+		height: 100px;
+		width: 300px;
+		float:left;
+	}
+	
+.l2header
+	{
+		background-color: #009697;
+		height: 100px;
+		width: 300px;
+		float:left;
+	}
+
+
+.l2info
+	{
+		background-color: #FE6864;
+		height: 100px;
+		width: 300px;
+		float:left;
+	}
+	
+.l2content
+	{
+		background-color: #966736;
+		height: 400px;
+		clear:left;
+	}
+	
+.l2footer
+	{
+		background-color: #3EC7FD;
+		height: 100px;
+		padding-top: 20px;
+	}
+	
+/* ---------------------------------------------------- */
+.l3nav
+	{
+		background-color: #92CC39;
+		height: 600px;
+		width:300px;
+		float: left;
+	}
+
+.l3header
+	{
+		background-color: #00FCFE;
+		height: 150px;
+		width:600px;
+		float: left;
+	}
+	
+.l3content
+	{
+		background-color: #96CBCB;
+		height: 450px;
+		width: 600px;
+		float:left;
+	}
+	
+.l3footer
+	{
+		background-color: #9B62CA;
+		height: 50px;
+		clear:both;
+	}
+/* ---------------------------------------------------- */
+
+#wrapper
+	{
+		width:900px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 40px;
+	}

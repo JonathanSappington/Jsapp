@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Team Roster</title>
+	</head>
+	<body>
+		<h1>Team Roster</h1>
+		<nav id="Nav">
+			<a href="index.html">Home</a>
+			<a href="logout.php">Logout</a>
+		</nav>
+		
+		<p></p>
+		
+		<div id="Form">
+			<form action="page2.php" method="POST">
+				<table border="1">
+					<tr>
+						<td>First Name</td>
+						<td><input type="text" name="fName" placeholder="Jake"></td>
+					</tr>
+					
+					<tr>
+						<td>Last Name</td>
+						<td><input type="text" name="lName" placeholder="Maguire"></td>
+					</tr>
+					
+					<tr>
+						<td>Address</td>
+						<td><input type="text" name="Address" placeholder="459 Hudson Drive"></td>
+					</tr>
+					
+					<tr>
+						<td>City</td>
+						<td><input type="text" name="City" placeholder="Seattle"></td>
+					</tr>
+					
+					<tr>
+						<td>State</td>
+						<td>
+							<select name="State" id="State">
+							  <option value="WA">Washington</option>
+							  <option value="MT">Montana</option>
+							  <option value="AR">Arizona</option>
+							  <option value="TX">Texas</option>
+							  <option value="CO">Colorado</option>
+							  <option value="MA">Maine</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Zip</td>
+						<td>
+							<input type="text" name="Zip" placeholder="45682">
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Team Name</td>
+						<td><input type="text" name="tName" placeholder="Seahawks"></td>
+					</tr>
+					
+					<tr>
+						<td colspan="2"><input type="submit" value="Enter" style="width:100%"></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</body>
+</html>

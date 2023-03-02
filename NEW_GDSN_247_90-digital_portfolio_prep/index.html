@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@charset "UTF-8";
+#player
+{
+	background-color: black;
+	width: 10px;
+	height: 10px;
+	
+	position: absolute;
+}
+
+#debug1, #debug2
+{
+	background-color: blue;
+	width: 10px;
+	height: 10px;
+	
+	position: absolute;
+}
+
+.body
+{
+	background-color: black;
+	width: 10px;
+	height: 10px;
+	
+	position: absolute;
+}
+
+#entity
+{
+	background-color: red;
+	width: 10px;
+	height: 10px;
+	
+	position: absolute;
+}
+
+#frame
+{
+	height: 250px;
+	width: 250px;
+	
+	margin: auto;
+	
+	border: 1px #000 solid;
+	position: relative;
+	background:
+		linear-gradient(-90deg, rgba(0,0,0,.05) 1px, transparent 1px),
+		linear-gradient(rgba(0,0,0,.05) 1px, transparent 1px), 
+		#f2f2f2;
+	background-size:
+		10px 10px,
+		10px 10px,
+		80px 80px,
+		80px 80px,
+		80px 80px,
+		80px 80px,
+		80px 80px;
+}
+
+#select
+{
+	margin: auto;
+	width: 10%;
+}
+
+.btn
+{
+	float: left;
+}
+span{
+	float: left;
+}
+
+.brick
+{
+	background-color: black;
+	width: 18px;
+	height: 8px;
+	
+	position: absolute;
+	border: solid 1px rgba(0,0,0,.05);
+}
+</style>
+	<title>Snake</title>
+</head>
+<body>
+	<div id="wrapper">
+		<div id="body">
+			<div id="frame">
+				<div id="player"></div>
+				<div id="entity"></div>
+				<div id="parent"></div>
+				<div id="debug1"></div>
+				<div id="debug2"></div>
+				
+			</div>
+		</div>
+        <label for="limit"><span>Entity Limit:</span></label>
+        <input type="text" onchange="changeAmount(this.value)" id="limit">
+	<script> 
+function Ball(pos, speed){
+    this.entity = document.createElement('div');
+    this.entity.id = 'entity';
+    document.getElementById("frame").appendChild(this.entity);
+
+    this.ballVec = [Math.floor(width / 2 / 10) * 10 + pos[0],Math.floor(height / 2 / 10) * 10 + pos[1]];
+
+    this.entity.style.left = this.ballVec[0].toString() + "px";
+	this.entity.style.bottom = this.ballVec[1].toString() + "px";
+
+
+    this.ballVec[0] = Math.floor(width / 2 / 10) * 10;
+    this.ballVec[1] = Math.floor(height / 2 / 10) * 10;
+
+    this.move = function()
+    {
+        var multiSpeed = 10 * deltaTime;
+
+        if(this.ballVec[1] + speed[1] > height - 10 || this.ballVec[1] + speed[1] < 0)
+        {
+            speed[1] = -speed[1];
+        }
+
+        if(this.ballVec[0] + speed[0] > height - 10 || this.ballVec[0] + speed[0] < 0)
+        {
+            speed[0] = -speed[0];
+        }
+
+        this.ballVec[0] += speed[0] * multiSpeed;
+        this.ballVec[1] += speed[1] * multiSpeed;
+        
+        this.entity.style.left = this.ballVec[0].toString() + "px";
+        this.entity.style.bottom = this.ballVec[1].toString() + "px";
+    }
+}
+
+function Game()
+{
+	this.running = false;
+    width = document.getElementById("frame").clientWidth;
+    height = document.getElementById("frame").clientHeight;
+    var balls = [];
+    for(var i = 0; i < entityLimit; i++)
+    {
+        balls.push(new Ball([0,0],[Math.random() * (1 - -1) + -1,Math.random() * (1 - -1) + -1]));
+    }
+	this.initialize = function(){		
+		this.running = true;
+		this.gameloop(0);
+	}
+	
+	this.stop = function(){
+		this.running = false;
+	}
+	
+	this.gameloop = function(timestamp)
+	{
+		deltaTime = (timestamp - lastTimestamp) / perfectFrameTime;
+		lastTimestamp = timestamp;
+
+		if(!isNaN(deltaTime)){
+			for(var i = 0; i < balls.length; i++)
+            {
+                balls[i].move();
+            }
+		}
+	}
+}
+function initGame(timestamp)
+{
+	if(game.running){
+		myreq = window.requestAnimationFrame(initGame);
+	}
+	game.gameloop(timestamp);
+}
+
+function boxCollider(origin,target,boxWidth,boxHeight)
+{
+	var collider = {
+		point1: [origin[0],origin[1]],
+		point2: [origin[0] + boxWidth,origin[1] + boxHeight]
+	};
+
+	if(target[0] < collider.point2[0] &&
+		target[1] < collider.point2[1] &&
+		target[0] > collider.point1[0] &&
+		target[1] > collider.point1[1])
+		return true;
+	
+	return false;
+}
+
+var selected = 0;
+
+var fps = 20;
+const perfectFrameTime = 1000 / fps;
+let deltaTime = 0;
+let lastTimestamp = 0;
+
+var myreq;
+
+function loadGame()
+{
+    reset();
+    game = new Game();
+	game.stop();
+	game.initialize();
+	initGame();
+}
+
+function reset()
+{
+	window.cancelAnimationFrame(myreq);
+	
+	deltaTime = 0;
+	lastTimestamp = 0;
+	
+	document.getElementById("frame").remove();
+
+	var newParent = document.createElement('div');
+	var frame = document.createElement('div');
+	
+	newParent.id = 'parent';
+	frame.id = "frame";
+	
+	document.getElementById("body").appendChild(frame);
+	document.getElementById("frame").appendChild(newParent);
+}
+var entityLimit = 10;
+function changeAmount(limit){
+    entityLimit = limit;
+    loadGame();
+}
+var game;
+loadGame();
+document.addEventListener("visibilitychange", loadGame);
+</script>
+</body>
+</html> 

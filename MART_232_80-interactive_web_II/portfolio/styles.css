@@ -1,0 +1,181 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body
+{
+	font-family: sans-serif;
+	background: url("images/banner.png") no-repeat top, url("images/repeat.png") repeat bottom;
+	background-size: 100%, auto;
+}
+
+h1
+{
+	color:white;
+	text-shadow: 0 0 40px black, 0 0 40px black, 0 0 40px black, 0 0 40px black, 0 0 40px black, 0 0 40px black, 0 0 40px black;
+}
+
+h1, h2
+{
+	text-align: center;
+}
+
+p
+{
+	font-size: 1.2em;
+}
+
+.centered{margin: auto;}
+.centered img{object-fit: cover; width: 50%; display: block; margin:auto;}
+
+.container img
+{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	margin: auto;
+	display: block;
+	object-fit: scale-down;
+	
+	width: 100%;
+}
+.leftBtn, .rightBtn
+{
+	height: 100%;
+	width: 50px;
+}
+
+.container:hover .leftBtn, .container:hover .rightBtn, .container:hover .title
+{
+	background-color: #00000099;
+	color: white;
+	
+	transition: background-color 0.1s, color 0.1s;
+}
+
+.leftBtn
+{
+	background-color: #00000000;
+	border-color: #00000000;
+	color: #00000000;
+	
+	position: absolute;
+	top: 0;
+	left: 0px;
+	
+	font-size: 1.5em;
+	
+	transition: background-color 1s, color 1s;
+	
+	cursor:pointer;
+}
+
+.rightBtn
+{
+	background-color: #00000000;
+	border-color: #00000000;
+	color: #00000000;
+	
+	position: absolute;
+	top: 0;
+	right: 0px;
+	
+	font-size: 1.5em;
+	
+	transition: background-color 1s, color 1s;
+	
+	cursor:pointer;
+}
+
+.title
+{
+	background-color: #00000000;
+	
+	position: absolute;
+	top: -20px;
+	height: 50px;
+	width: 100%;
+	
+	padding-top: 10px;
+	
+	color: #00000000;
+	transition: background-color 1s, color 1s;
+}
+
+.container
+{
+	position: relative;
+	margin: auto;
+	height: 924px;
+	width:48.5%;
+	background-color: black;
+	margin: 10px;
+}
+
+#gallery .container{float: left; display: block; margin:10px;}
+
+hr
+{
+	clear:left;
+}
+
+#web
+{
+	width: 90%;
+	margin: auto;
+}
+
+#gallery
+{
+	margin: auto;
+	width: 90%;
+	
+	padding: 10px;
+}
+
+#subject
+{
+	margin: 10px;
+	background-color: #39B061;
+	border-radius: 10px;
+	padding: 10px;
+	
+	color: white;
+}
+
+#blob
+{
+	width: 75%;
+	margin: auto;
+}
+
+#wrapper
+{
+	width: 80%;
+	margin: auto;
+	background-color: #fff;
+	border-radius: 20px;
+	padding: 10px;
+	margin-top: 200px;
+	
+	box-shadow: 10px 10px 5px black;
+}
+
+footer
+{
+	text-align: center;
+	font-size: 0.7em;
+	
+	font-style: italic;
+	padding: 10px;
+	clear: both;
+	color: white;
+	background-color: #3D3A2F;
+}
+
+@media only screen and (max-width: 1512px) 
+	{
+		.card{margin-bottom: 20px;}
+		.container{width:100%;}
+	}

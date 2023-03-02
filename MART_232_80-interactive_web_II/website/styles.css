@@ -1,0 +1,303 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* Base website layout for index.html, labs.html, projects.html */
+/* #BaseStart */
+p
+	{
+		text-indent: 10px;
+		font-size: 1.2em;
+	}
+
+body
+	{
+		background-color: #454D7D;
+		color: #fff;
+		font-family: sans-serif;
+		line-height: 25px;
+		clear: both;
+		background: url('images/background.png') fixed center #454D7D;
+		background-size: 100%;
+	}
+	
+img
+	{
+		margin-left: 15%;
+		width: 70%;
+	}
+
+h2
+	{
+		color: #C9AA47;
+		text-align: center;
+	}
+	
+footer
+	{
+		text-align: center;
+		font-size: 0.7em;
+		
+		font-style: italic;
+		padding: 10px;
+		clear: both;
+	}
+	
+footer p
+	{
+		width: 100%;
+	}
+	
+ul{font-size: 1.2em;}
+	
+nav ul
+	{
+		font-size: 1em;
+		list-style-type: none;
+		margin: 0;
+		padding: 10px;
+		overflow: hidden;
+	}
+	
+ul li 
+	{
+		margin-top: 195px;
+		float: right;
+		margin-top: 0px;
+	}
+
+nav li a 
+	{
+		font-size: 1.5em;
+		display: block;
+		color: #2E6D94;
+		
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+	}
+	
+a:link, a:visited{color: #FFF;}
+a:hover, a:active{color: #ABB0C9;}
+	
+hr
+	{
+		clear: both;
+		color: #ABB0C9;
+	}
+
+.Function h2
+	{
+		text-align: center;
+		color: #C9AA47;
+	}
+	
+.Head
+	{
+		margin: auto;
+		width: 50%;
+		padding: 10px;
+	}
+	
+.Head dl
+	{
+		list-style-type: none;
+	}
+	
+.Head h2
+	{
+		text-align: center;
+		white-space: nowrap;
+	}
+.imgText img
+	{
+		margin-left: 0;
+		width: 40%;
+		border: 8px solid #2F3556;
+		border-radius: 25px;
+	}
+
+.desc 
+	{
+		position: relative; 
+		text-align: left;
+		width: 100%; 
+		height: 10%; 
+		float: left;
+		background-color: #2F3556;
+		margin: 10px;
+		padding: 10px;
+	}
+	
+.desc p
+	{
+		text-indent:0px;
+	}
+
+.descLink:hover, .descLink:active, .descLink:link, .descLink:visited{color: #FFF;}
+
+.desc img
+	{
+		margin-left: 0;
+		width: 10%;
+		border: 8px solid #2F3556;
+		border-radius: 25px;
+		float: left;
+	}
+
+.comment
+	{
+		text-align: center;
+		width: 100%;
+	}
+
+#wrapper main, #wrapper nav
+	{
+		width:80%;
+		height: 100%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	
+/* #BaseEnd */
+
+/* Form website layout for form.html*/
+/* #FormStart */
+
+.subject
+{
+	margin: auto;
+	
+	border: 3px solid #2F3556;
+	border-radius: 10px;
+	
+	width: 75%;
+	text-align: center;
+	padding: 10px;
+	margin-bottom: 25px;
+}
+
+.subject a
+{
+	font-size: 20px;
+}
+
+
+input, select
+	{
+		background-color: #2F3556;
+		border: 3px solid #2F3556;
+		border-radius: 10px;
+		
+		color: white;
+		font-size: 1em;
+	}
+
+#submit:disabled,
+button[disabled]
+	{
+	  border: 1px solid #999999;
+	  background-color: #cccccc;
+	  color: #666666;
+	}
+
+/* #FormEnd */
+
+/* #HostStart */
+table{width: 90%; margin: auto; border-spacing: 0;}
+
+td, th {padding: 10px; border: 2px solid #462626;}
+
+tr:nth-of-type(odd){background-color: #552F33;}
+
+#whpage{background-color: #7C454A;}
+/* #HostEnd */
+	
+@media only screen and (min-width: 1025px)
+	{
+		.imgText {position: relative; text-align: center;width: 33%; float: left;}
+		.imgText{transition: 0.3s;color: #66000000}
+		.imgText:hover{color: #fff}
+		
+		.Head{
+			margin: auto;
+			margin-left: 0%;
+			padding: 0;
+			text-align: center;
+			float: left;
+		}
+		
+		.Head img{margin: auto; width: 25%;}
+		.Head h2{width: 100%; margin-right: 10%;}
+	
+		nav li a{transform: scale(1); transition:0.3s}
+		nav li a:hover{transform: scale(1.25);}
+		form{margin: auto; width: 40%; display: grid; grid-template-rows: auto; 
+		grid-template-columns: 6em 1fr; grid-gap: 1em; gap: 1em; padding-left: 1em;}
+		input[type="submit"]{grid-column: 2 / 3; width: 9em; margin-left: 0;}
+		input[type="reset"]{grid-column: 2 / 3; width: 9em; margin-left: 0;}
+		#radioBtns{ grid-column: 2 / 3}
+		#region{ grid-column: 1 / 3}
+	}
+	
+@media only screen and (max-width: 1024px)
+	{
+		
+		.imgText{position: relative; text-align: center;width: 33%; float: left;}
+		.Head{margin-left: 0; width: 100%;}
+		.Head img{margin-left: 35%; width: 30%;}
+		nav{width: 100%;}
+		ul li 
+		{
+			width: 100%;
+			margin-top: 0px;
+			margin-right: 0px;
+			margin-left: 0px;
+			float: right;
+		}
+		
+		dl dd 
+		{
+			width: 100%;
+			margin-top: 0px;
+			margin-right: 0px;
+			margin-left: 0px;
+			float: right;
+		}
+		
+		form{ 
+			display: flex;
+			flex-direction: column;
+			padding-left: 1em;
+			width: 90%
+		}
+		
+		td, th {padding: 2px; font-size: 0.75em}
+		input[type="submit"]{grid-column: 2 / 3; width: 9em; margin-left: 0;}
+		input[type="reset"]{grid-column: 2 / 3; width: 9em; margin-left: 0;}
+		input, textarea{margin-bottom: 0.5em;}
+	}
+	
+@media only screen and (max-width: 768px) 
+	{
+		.imgText {position: relative; text-align: center;width: 100%;}
+		.head{width: 100%; clear: both;}
+		
+		h1, h2{font-size: 1.5em;}
+		nav li 
+		{
+			width: 100%;
+		}
+		
+		ul li 
+		{
+			width: 100%;
+			margin-top: 0px;
+		}
+		td, th {font-size: 0.65em;}
+		table{width: 100%;}
+		
+		#wrapper main, #wrapper nav
+		{
+			width:100%;
+		}
+	}

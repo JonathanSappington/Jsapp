@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Final Project</title>
+	<link href="styles.css" rel="stylesheet" media="screen">
+	<link href="print.css" rel="stylesheet" media="print">
+	<link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri&display=swap" rel="stylesheet">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+	<h1>Final Project</h1>
+
+	<!-- Centers Webpage Content -->
+	<div id="wrapper">
+		<!-- Main Holds all important content -->
+		<main>
+			<div class="Function">
+				<div id="subject">
+					<h2>Portfolio Website</h2>
+					<hr>
+					
+					<div id="blob">
+						<p>Website Address: <a href="http://jonathans80.sg-host.com/" target="_blank">http://jonathans80.sg-host.com/</a>
+							<br> <br> 
+							Website Platform: WordPress
+							<br> <br> 
+							
+							Website Purpose: The purpose of my website is to provide potential clients with my extensive portfolio. 
+							Included in this webpage will be my experience with programming languages such as HTML, CSS, C#, C++, Javascript, and Python. 
+							All smaller coding projects will have their source code attached all programmed and designed by me.
+							<br> <br> 
+							
+							Audience: The audience I am targeting for my website will be potential employers and tech enthusiasts. 
+							The site will showcase my technological portfolio for those interested in subjects of programming, and games.
+							<br> <br> 
+						</p>
+						<p>Inspiration Websites: 3 websites with design inspiration</p>
+							<ul>
+								<li><a href="https://www.unity.com" target="_blank">www.unity.com</a></li>
+								<li><a href="https://nimsony.itch.io/" target="_blank">https://nimsony.itch.io/</a></li>
+								<li><a href="http://slimerancher.com/" target="_blank">http://slimerancher.com/</a></li>
+							</ul>
+						<p>Content Websites: 3 websites with content inspiration</p>
+						<ul>
+							<li><a href="https://nimsony.itch.io/" target="_blank">https://nimsony.itch.io/</a></li>
+							<li><a href="https://www.teamcherry.com.au/" target="_blank">https://www.teamcherry.com.au/</a></li>
+							<li><a href="https://www.ttgames.com/" target="_blank">https://www.ttgames.com/</a></li>
+						</ul>
+						<p>3 New Techniques:</p>
+						<ul>
+							<li>I've learned how to showcase my source code in an appealing format using the plugin code blocks. I used the code blocks plugin to display my source code for single script projects like Obj Reader, Pong, and Snake. A very useful tool for a programmer to showcase their programming fluency.</li>
+							<li>I've learned advanced techniques using the section elements from the otter plugin to create the side-by-side image text formats. I used it to display my image and some text side by side more efficiently. An example of my usage would be the about page where I feature an image of myself and some resume text to the side.</li>
+							<li>I've learned how to use custom HTML blocks inside of WordPress to create fancy links to my games. I used this feature to ad custom-made widgets from Itch.io to my website. The games I used this for are Colorless, Passing Flame (pre and post-jam), Rock Slide, UFO, and Blizzard.</li>
+						</ul>
+					</div>
+					</div>
+				
+				<p>Below are images of the website:</p>
+				
+				<h2 style="text-align: center;">Website Images</h2>
+				<div class="container" id="web">
+						<img id="webView" src="images/img02.png" alt="turtle" height="882">
+						<h2 class="title" id="webTitle">Home Page</h2>
+						<input type="button" class="leftBtn" value="<" onclick="changeImage('webView','webTitle','normal',-1)">
+						<input type="button" class="rightBtn" value=">" onclick="changeImage('webView','webTitle','normal',1)">
+				</div>
+				<hr>
+			</div>
+		</main>
+
+		<!-- Contains extra facts and content -->
+		<footer>	
+			<p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Jonathan Sappington | All Rights Reserved</p>
+		</footer>
+	</div>
+	
+		<script src="js/image-viewer.js"></script>
+</body>
+</html> 

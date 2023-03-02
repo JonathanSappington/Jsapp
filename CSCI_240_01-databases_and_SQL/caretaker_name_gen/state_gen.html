@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>JSON Lab</title>
+		<link href="styles.css" rel="stylesheet" media="screen">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    </head>
+	
+    <body onload="getData();">
+		<h2>JQuery Example</h2>
+		
+		<div id="jList">
+			
+		</div>
+		
+		<script>
+			function getData()
+			{
+				$.getJSON('states_plus.json',function(state)
+				{
+					for(var i = 0; i < state.length; i++)
+					loadData(state,i);
+				});
+			}
+			
+			function loadData(state,i)
+			{
+				var output = "";
+					
+				output += "(" + 
+							'"' + state[i] + '"' + 
+							"), <br>";
+				document.getElementById("jList").innerHTML += output;
+			}
+		</script>
+	</body>	
+</html>
+

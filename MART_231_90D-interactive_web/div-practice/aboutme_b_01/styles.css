@@ -1,0 +1,140 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* Changes the style of all the elements contained in the body */
+body
+	{
+		background-color: #FFEBDB;
+		color: #25424c;
+		
+		font-family: 'Josefin Sans', sans-serif;
+		font-size: 1.1em;
+	}
+	
+main
+	{
+		text-indent: 10px;
+		line-height: 150%;
+	}
+	
+/* Changes the style of all the elements in the header */
+header
+	{
+		background-color: #fb770d;
+		padding: 20px;
+	}
+
+/* Changes the style of the lines */
+hr
+	{
+		border-color: #D3C2B6;
+		border-style: solid;
+	}
+	
+/* Changes the style of all the elements inside the nav element */
+nav
+	{
+		border: solid;
+		border-color: #FFEBDB;
+		
+		padding: 10px;
+		background-color: #ffa45b;
+	}
+	
+/* Changes the style of all links in the nav element */
+nav a
+	{
+		font-weight: bold;
+		padding: 10px 25px;
+		text-align: center;
+		
+		text-decoration: none;
+		display: inline-block;
+	}
+
+/* Technique described in the cssresources to make buttons */
+nav a:link, a:visited 
+	{		
+		background-color: #ffa45b;
+		color: #25424c;
+	}
+	
+nav a:hover, a:active 
+	{
+	  background-color: #25424c;
+	  color: #ffffff;
+	}
+	
+/* unvisited link */
+main a:link 
+	{
+	  color: #228B22;
+	}
+
+/* visited link */
+main a:visited 
+	{
+	  color: #0000CD;
+	}
+
+/* mouse over link */
+main a:hover 
+	{
+	  color: #8A2BE2;
+	}
+
+/* selected link */
+main a:active 
+	{
+	  color: #ffffff;
+	} 
+	
+/* Changes the style of all the elements inside the footer element */
+footer
+	{
+		background-color: #fb770d;
+		color: #25424c;
+		text-align: center;
+		font-size: 0.7em;
+		
+		font-style: italic;
+		padding: 10px;
+	}
+
+/* Centers website content */
+#wrapper
+	{
+		width:80%;
+		height: 100%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+/* Adds icon box for header */
+#headericon
+	{
+		background-color: #FDAF00; 
+		
+		width: 128px;
+		height: 128px;
+		
+		margin-right: auto;
+		
+	}
+
+
+/* Creates box for quotes */
+.quotes
+	{
+		border: solid;
+		border-color: #FDAF00;
+		text-align: center;
+		
+		font-size: 1.3em;
+		font-weight: bold;
+		
+		width: 400px;
+		height: 128px;
+		
+		margin-left: auto;
+	}

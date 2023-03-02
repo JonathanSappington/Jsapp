@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>JSON Lab</title>
+		<link href="styles.css" rel="stylesheet" media="screen">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    </head>
+	
+    <body onload="getData();">
+		<h2>JQuery Example</h2>
+		<a href="state_gen.html">Example 1</a>
+		
+		<div id="jList">
+			
+		</div>
+		
+		<script>
+			function getData()
+			{
+				$.getJSON('names.json',function(fname)
+				{
+					$.getJSON('breeds.json',function(breed)
+					{
+						for(var i = 0; i < 20; i++)
+						loadData(fname,breed);
+					});
+				});
+			}
+			
+			function loadData(fname,breed)
+			{
+				var output = "";
+					var f = Math.floor(Math.random() * fname.length);
+					var gender = ["Male","Female"];
+					
+					output += "(" + 
+								'"' + fname[f] + '", ' +
+								'' + "CURRENT_TIMESTAMP" + ', ' +
+								'' + Math.floor(Math.random() * 40) + ', ' +
+								'' + Math.floor(Math.random() * 50) + ', ' +
+								'"' + gender[Math.floor(Math.random() * gender.length)] + '", ' +
+								'"000' + Math.floor(Math.random() * 6 + 1) + '", ' +
+								'' + Math.floor(Math.random() * 6 + 1) + ', ' +
+								'"' + breed[Math.floor(Math.random() * breed.length)] + '"' +
+								"), <br>";
+				document.getElementById("jList").innerHTML += output;
+			}
+		</script>
+	</body>	
+</html>
+

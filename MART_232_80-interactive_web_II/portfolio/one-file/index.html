@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gallery</title>
+    <style>
+
+h1, h2
+{
+	text-align: center;
+}
+
+
+.centered{margin: auto;}
+.centered img{object-fit: cover; width: 50%; display: block; margin:auto;}
+
+.container img
+{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	margin: auto;
+	display: block;
+	object-fit: scale-down;
+	
+	width: 100%;
+}
+.leftBtn, .rightBtn
+{
+	height: 100%;
+	width: 50px;
+}
+
+.container:hover .leftBtn, .container:hover .rightBtn, .container:hover .title
+{
+	background-color: #00000099;
+	color: white;
+	
+	transition: background-color 0.1s, color 0.1s;
+}
+
+.leftBtn
+{
+	background-color: #00000000;
+	border-color: #00000000;
+	color: #00000000;
+	
+	position: absolute;
+	top: 0;
+	left: 0px;
+	
+	font-size: 1.5em;
+	
+	transition: background-color 1s, color 1s;
+	
+	cursor:pointer;
+}
+
+.rightBtn
+{
+	background-color: #00000000;
+	border-color: #00000000;
+	color: #00000000;
+	
+	position: absolute;
+	top: 0;
+	right: 0px;
+	
+	font-size: 1.5em;
+	
+	transition: background-color 1s, color 1s;
+	
+	cursor:pointer;
+}
+
+.title
+{
+	background-color: #00000000;
+	
+	position: absolute;
+	top: -20px;
+	height: 50px;
+	width: 100%;
+	
+	padding-top: 10px;
+	
+	color: #00000000;
+	transition: background-color 1s, color 1s;
+}
+
+.container
+{
+	position: relative;
+	margin: auto;
+	height: 924px;
+	width:48.5%;
+	background-color: black;
+	margin: 10px;
+}
+
+#gallery .container{float: left; display: block; margin:10px;}
+
+#web
+{
+	width: 90%;
+	margin: auto;
+}
+
+#gallery
+{
+	margin: auto;
+	width: 90%;
+	
+	padding: 10px;
+}
+    </style>
+	<link href="styles.css" rel="stylesheet" media="screen">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+	<div id="wrapper">
+		<main>
+			<h2 style="text-align: center;">Website Images</h2>
+			<div class="container" id="web">
+					<img id="webView" src="images/img02.png" alt="turtle" height="882">
+					<h2 class="title" id="webTitle">Home Page</h2>
+					<input type="button" class="leftBtn" value="<" onclick="changeImage('webView','webTitle','normal',-1)">
+					<input type="button" class="rightBtn" value=">" onclick="changeImage('webView','webTitle','normal',1)">
+			</div>
+		</main>
+	</div>
+	
+		<script>
+			var imgList = '{"normal":["https://static.wixstatic.com/media/eaab725261f9470fbbf2e5674da93ca0.jpg/v1/fill/w_740,h_493,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/eaab725261f9470fbbf2e5674da93ca0.jpg", "https://static.wixstatic.com/media/nsplsh_82c78623a07b45669f3ed60a9048f3d5~mv2.jpg/v1/fill/w_740,h_493,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/nsplsh_82c78623a07b45669f3ed60a9048f3d5~mv2.jpg", "https://static.wixstatic.com/media/11062b_502b8c52b5744e9b97e7c045961f0902~mv2.jpeg/v1/fill/w_740,h_493,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_502b8c52b5744e9b97e7c045961f0902~mv2.jpeg"]}';
+
+var titleList = '{"normal":["img 01", "img 02", "img 03"]}';
+var count = '{"normal": 0}';
+
+const imgGallery = JSON.parse(imgList);
+const titleGallery = JSON.parse(titleList);
+const countGallery = JSON.parse(count);
+
+function preload(imageArray, type, index) {
+        index = index || 0;
+        if (imageArray && imageArray.length > index) {
+            var img = new Image ();
+            img.onload = function() {
+                preload(imageArray, type, index + 1);
+            }
+            img.src = imgGallery[type][index];
+		}
+}
+
+preload(imgGallery["normal"],"normal",0);
+
+function changeImage(id, title, selectedGallery, increment)
+{
+	countGallery[selectedGallery] += increment;
+	
+	if(countGallery[selectedGallery] >= imgGallery[selectedGallery].length)
+		countGallery[selectedGallery] = 0;
+	
+	if(countGallery[selectedGallery] <= -1)
+		countGallery[selectedGallery] = imgGallery[selectedGallery].length - 1;
+	
+	document.getElementById(id).src = imgGallery[selectedGallery][countGallery[selectedGallery]];
+	document.getElementById(title).innerHTML = titleGallery[selectedGallery][countGallery[selectedGallery]];
+}
+changeImage('webView','webTitle','normal',1);
+		</script>
+</body>
+</html> 

@@ -1,0 +1,136 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* Changes the style of all the elements contained in the body */
+body
+	{
+		background-color: #FFEBDB;
+		color: #25424c;
+		
+		font-family: 'Josefin Sans', sans-serif;
+		font-size: 1.1em;
+	}
+	
+main
+	{
+		text-indent: 10px;
+		line-height: 150%;
+	}
+	
+/* Changes the style of all the elements in the header */
+header
+	{
+		background-color: #fb770d;
+		padding: 20px;
+	}
+
+/* Changes the style of the lines */
+hr
+	{
+		border-color: #D3C2B6;
+		border-style: solid;
+	}
+	
+/* Changes the style of all the elements inside the nav element */
+nav ul 
+	{
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-color: #ffa45b;
+	}
+
+nav li 
+	{
+		float: left;
+	}
+
+nav li a 
+	{
+		display: block;
+		color: #25424c;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+	}
+
+nav li a:hover 
+	{
+		background-color: #25424c;
+		color: #fff;
+	}
+	
+/* unvisited link */
+main a:link 
+	{
+	  color: #228B22;
+	}
+
+/* visited link */
+main a:visited 
+	{
+	  color: #0000CD;
+	}
+
+/* mouse over link */
+main a:hover 
+	{
+	  color: #8A2BE2;
+	}
+
+/* selected link */
+main a:active 
+	{
+	  color: #ffffff;
+	} 
+	
+/* Changes the style of all the elements inside the footer element */
+footer
+	{
+		background-color: #fb770d;
+		color: #25424c;
+		text-align: center;
+		font-size: 0.7em;
+		
+		font-style: italic;
+		padding: 10px;
+	}
+
+/* Centers website content */
+#wrapper
+	{
+		width:80%;
+		height: 100%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+/* Adds icon box for header */
+#headericon
+	{
+		background-color: #FDAF00; 
+		
+		width: 128px;
+		height: 128px;
+		
+		margin-right: auto;
+		
+	}
+
+
+/* Creates box for quotes */
+.quotes
+	{
+		border: solid;
+		border-color: #FDAF00;
+		text-align: center;
+		
+		font-size: 1.3em;
+		font-weight: bold;
+		
+		width: 400px;
+		height: 128px;
+		
+		margin-left: auto;
+	}

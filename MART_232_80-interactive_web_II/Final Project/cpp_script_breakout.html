@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Jonathan Sappington - Portfolio</title>
+	
+	<link href="styles.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet"> 
+	<link rel="icon" src="favicon.ico" type="image/x-icon">
+	
+</head>
+<body>
+	<!-- Header contains website header-->
+	<header>
+		<div id="spacing">
+			<!-- Header Icon -->
+			<h1><a href="index.html">Home</a></h1>
+			<!-- Navigation contains the links to other parts of the website-->
+			<nav>
+				<ul>
+					<li id="currentLink"><a href="index.html">Home</a></li>
+					<li class="dropdown"><a href="portfolio.html">Portfolio</a>
+					<ul>
+						<li><a href="cs_main.html">C#</a>
+						<li><a href="cpp_main.html">C++</</a>
+						<li><a href="js_main.html">Javascript</</a>
+						<li><a href="py_main.html">Python</</a>
+					</ul></li>
+					<li><a href="contact.html">Contact</a></li>
+					<li><a href="about.html">About</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+		
+	<div id="banner"><h2>Welcome</h2></div>
+	<!-- Centers Webpage Content -->
+	<div id="wrapper">
+		
+		<!-- Main Holds all important content -->
+		<main>
+			<div class="column">
+			<div class="section01">
+				<div id="codeBlock">
+					<pre>
+						import turtle
+						import numpy
+						import math
+
+						def Read_OBJ():
+						data = open("Untitled.obj","r")
+						line = data.readline()
+
+						while line:
+							record = line.split()
+							if "v" in record:
+								record.remove("v")
+								vertices.append(record)
+
+							if "f" in record:
+								record.remove("f")
+								segment = " ".join(record)
+								record = segment.split()
+
+								for i in record:
+									if i != "":
+										string = ""
+										for x in i:
+											if x != "/":
+												string += x
+											else:
+												break
+										faces.append(string)
+
+								faces.append("end")
+								
+							line  = data.readline()
+						Draw_OBJ(0,0)
+							
+						def Draw_OBJ(x,y):
+						bob = turtle.Turtle()
+						screen = turtle.Screen()
+						screen.screensize(1920, 1920)
+
+						turtle.delay(0)
+						turtle.tracer(0, 0)
+
+						bob.speed = (0)
+						bob.ht()
+						bob.penup()
+						bob.setpos((float(vertices[int(faces[0]) - 1][0]) + x) * 100, 
+									(float(vertices[int(faces[0]) - 1][1]) + y) * 100)
+						bob.pendown()
+
+						start_seg = 0
+
+						cur_steps = 0
+						steps = -1
+
+						for i in range(len(faces)):
+							if faces[i] == "end":
+								bob.setpos(
+									(float(vertices[int(faces[start_seg]) - 1][0]) + x) * 100,
+									(float(vertices[int(faces[start_seg]) - 1][1]) + y) * 100)
+									
+								bob.penup()
+								start_seg = i + 1
+
+								if cur_steps == steps:
+									turtle.update()
+									cur_steps = 0
+									
+								if steps > 0:
+									cur_steps += 1
+								continue
+								
+							bob.setpos((float(vertices[int(faces[i]) - 1][0]) + x) * 100, 
+										(float(vertices[int(faces[i]) - 1][1]) + y) * 100)
+							bob.pendown()
+
+						vertices = []
+						faces = []
+						Read_OBJ()
+					</pre>
+				</div>
+			</div>
+				<div class="section02">
+					<div id="midcolumn">
+						<canvas id="turtlecanvas" width="700" height="700"></canvas>
+						<canvas id="imagecanvas" width="700" height="700" style="display:none"></canvas>
+					 </div>
+				</div>
+			</div>
+		</main>
+	</div>
+	
+	<!-- Contains extra facts and content -->
+	<footer>
+		<p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Jonathan Sappington | All Rights Reserved</p>
+	</footer>
+	
+	<script type="text/javascript" src="js/turtle/lib/library.js"></script>
+    <script type="text/javascript" src="js/turtle/functions.js"></script>
+    <script type="text/javascript" src="js/turtle/turtle.js"></script>
+</body>
+</html> 

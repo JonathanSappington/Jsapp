@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Swallow Crest Farm</title>
+	<link href="styles.css" rel="stylesheet" media="screen">
+	<link href="print.css" rel="stylesheet" media="print">
+	<link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri&display=swap" rel="stylesheet">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+	<h1>Swallow Crest Farm Website Project</h1>
+
+	<!-- Centers Webpage Content -->
+	<div id="wrapper">
+		<!-- Main Holds all important content -->
+		<main>
+			<div class="Function">
+				<div id="subject">
+					<h2>Sitemap</h2>
+					<hr>
+					<div class="centered"><img src="images/sitemap.png" alt="turtle"></div>
+					
+					<div id="blob">
+						<p>Contained within these four-pointed walls of HTML is my Swallow Crest Farm website. Full of fun and amusement, 
+						crafted to the client's needs, ensuring a responsive and interactive environment. 
+						<br> <br> 
+						It features a total of nine pages the home, blog, distribution, CSA distribution, subscription, blog, events, recipes, 
+						and contact pages, each incorporating a section from the provided material given by the client in the discovery phase. 
+						<br> <br> 
+						
+						The website boasts a green, blue, and white color scheme to match the colors featured on the Swallow Crest Logo. 
+						Also included are several widgets used to enhance user interactions with the recipes and events page and a plethora 
+						of plugins allowing for ease of use features such as event calendars, forms, theme editors, galleries, and image 
+						optimization.</p></div>
+					
+					</div>
+				<p>Link to website: <a href="https://swallowcrestfarm.sgedu.site/" target="_blank">Swallow Crest Farm</a></p>
+				
+				<p>Below are images of the website, mockups and wireframes:</p>
+				
+				<h2 style="text-align: center;">Website Images</h2>
+				<div class="container" id="web">
+						<img id="webView" src="images/homepage.png" alt="turtle" height="882">
+						<h2 class="title" id="webTitle">Home Page</h2>
+						<input type="button" class="leftBtn" value="<" onclick="changeImage('webView','webTitle','website',-1)">
+						<input type="button" class="rightBtn" value=">" onclick="changeImage('webView','webTitle','website',1)">
+				</div>
+
+				<div id="gallery">
+					<h2 style="text-align: center;">Mockups/Wireframes</h2>
+					<div class="container">
+						<img id="view" src="images/pc.png" alt="turtle" height="882">
+						<h2 class="title" id="normTitle">Computer Mockup</h2>
+						<input type="button" class="leftBtn" value="<" onclick="changeImage('view','normTitle','normal',-1)">
+						<input type="button" class="rightBtn" value=">" onclick="changeImage('view','normTitle','normal',1)">
+					</div>
+					
+					<div class="container">
+						<img id="altView" src="images/pc_alt.png" alt="turtle" height="882">
+						<h2 class="title" id="altTitle">Alt Computer Mockup</h2>
+						<input type="button" class="leftBtn" value="<" onclick="changeImage('altView','altTitle','alternate',-1)">
+						<input type="button" class="rightBtn" value=">" onclick="changeImage('altView','altTitle','alternate',1)">
+					</div>
+				</div>
+				<hr>
+			</div>
+		</main>
+
+		<!-- Contains extra facts and content -->
+		<footer>	
+			<p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Jonathan Sappington | All Rights Reserved</p>
+		</footer>
+	</div>
+	
+		<script src="js/image-viewer.js"></script>
+</body>
+</html> 

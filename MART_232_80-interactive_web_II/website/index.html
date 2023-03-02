@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Jonathan Sappington - CM HomePage</title>
+	<link href="styles.css" rel="stylesheet" media="screen">
+	<link href="snakegame/frame.css" rel="stylesheet" media="screen">
+	<link href="print.css" rel="stylesheet" media="print">
+	<link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri&display=swap" rel="stylesheet"> 
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+	<!-- Centers Webpage Content -->
+	<div id="wrapper">
+
+		<div class="Head">
+			<dl>
+			 <dt></dt>
+				<dd>
+					<h2>Jonathan Sappington</h2>
+				</dd>
+				<dd>
+					<a href="index.html"><img src="images/img.jpg" alt="Icon"></a>
+				</dd>
+			</dl>
+		</div>
+		<!-- Navigation contains the links to other parts of the website-->
+		<nav>
+			<ul>
+				<li><a href="labs.html">Labs</a></li>
+				<li><a href="projects.html">Projects</a></li>
+			</ul>
+		</nav>
+		
+		<!-- Main Holds all important content -->
+		<main>
+			<hr>
+			<div class="Function">
+				<h2>Welcome</h2>
+				
+				<p class="comment">My name is Jonathan Sappington and this is my course managment website. Here is where 
+				I will put my labs and projects for interactive web II</p>
+				
+				<div id="body">
+					<div id="frame">
+						<div id="player"></div>
+						<div id="entity"></div>
+						<div id="parent"></div>
+						<div id="debug1"></div>
+						<div id="debug2"></div>
+					</div>
+				</div>
+				<div id="select">
+					<div class="btn"><input type="button" value="🡸" onclick="prevGame()"></div>
+					<span id="title">Game Title</span>
+					<div class="btn"><input type="button" value="🡺" onclick="nextGame()"></div>
+				</div>
+				
+				<img src="images/turtle.png" alt="turtle">
+				
+				<hr>
+			</div>
+		</main>
+
+		<!-- Contains extra facts and content -->
+		<footer>	
+			<p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Jonathan Sappington | All Rights Reserved</p>
+		</footer>
+	</div>
+	
+	<script src="snakegame/m_selector.js"type="text/javascript"></script>
+	<script src="snakegame/g_snake.js"type="text/javascript"></script>
+	<script src="snakegame/g_breakout.js"type="text/javascript"></script>
+	<script src="snakegame/g_pong.js"type="text/javascript"></script>
+</body>
+</html> 

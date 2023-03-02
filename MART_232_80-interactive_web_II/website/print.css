@@ -1,0 +1,125 @@
+@charset "UTF-8";
+/* CSS Document */
+
+p
+	{
+		text-indent: 10px;
+		font-size: 1.2em;
+	}
+
+body
+	{
+		font-family: sans-serif;
+		line-height: 25px;
+		clear: both;
+	}
+	
+img
+{
+	margin-left: 30%;
+	width: 40%;
+}
+	
+footer
+	{
+		text-align: center;
+		font-size: 0.7em;
+		
+		font-style: italic;
+		padding: 10px;
+		clear: both;
+	}
+	
+footer p
+	{
+		width: 100%;
+	}
+
+ul{font-size: 1.2em;}
+	
+nav ul
+	{
+		font-size: 1em;
+		list-style-type: none;
+		margin: 0;
+		padding: 10px;
+		overflow: hidden;
+	}
+	
+ul li 
+	{
+		margin-top: 195px;
+		float: right;
+		margin-top: 0px;
+	}
+
+nav li a 
+	{
+		font-size: 1.5em;
+		display: block;
+		color: #2E6D94;
+		
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+	}
+	
+nav a:link,nav a:visited,nav a:active{color: #fff;}
+
+nav li a:hover 
+	{
+		color: #ABB0C9;
+	}
+	
+a:link, a:visited{color: #FFF;}
+a:hover, a:active{color: #ABB0C9;}
+	
+hr
+	{
+		clear: both;
+		color: #ABB0C9;
+	}
+	
+.Function h2
+	{
+		text-align: center;
+	}
+	
+.Head
+	{
+		float: left;
+		margin-left: 10%;
+		width: 15%;
+	}
+	
+.Head dl
+	{
+		list-style-type: none;
+	}
+	
+.Head h2
+	{
+		text-align: center;
+		font-size: 1em;
+		white-space: nowrap;
+	}
+.imgText img
+	{
+		margin-left: 0;
+	}
+
+.comment
+	{
+		text-align: center;
+		width: 100%;
+	}
+
+#wrapper main, #wrapper nav
+	{
+		width:80%;
+		height: 100%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+.imgText {position: relative; text-align: center;width: 33%; float: left;}

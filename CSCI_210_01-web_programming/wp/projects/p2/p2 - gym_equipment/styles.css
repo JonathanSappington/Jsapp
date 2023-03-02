@@ -1,0 +1,136 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* Base website layout for index.html, labs.html, projects.html */
+/* #BaseStart */
+p
+	{
+		text-indent: 10px;
+		font-size: 1.2em;
+	}
+
+body
+	{
+		background-color: #454D7D;
+		color: #fff;
+		font-family: sans-serif;
+		line-height: 25px;
+		clear: both;
+		background-size: 100%;
+	}
+	
+#memo{
+	word-wrap: anywhere;
+}	
+
+img
+	{
+		margin-left: 15%;
+		width: 70%;
+	}
+
+h2
+	{
+		color: #C9AA47;
+		text-align: center;
+	}
+	
+footer
+	{
+		text-align: center;
+		font-size: 0.7em;
+		
+		font-style: italic;
+		padding: 10px;
+		clear: both;
+	}
+	
+footer p
+	{
+		width: 100%;
+	}
+	
+ul{font-size: 1.2em;}
+	
+nav ul
+	{
+		font-size: 1em;
+		list-style-type: none;
+		margin: 0;
+		padding: 10px;
+		overflow: hidden;
+	}
+	
+ul li 
+	{
+		margin-top: 195px;
+		float: right;
+		margin-top: 0px;
+	}
+
+nav li a 
+	{
+		font-size: 1.5em;
+		display: block;
+		color: #2E6D94;
+		
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+	}
+	
+a:link, a:visited{color: #FFF;}
+a:hover, a:active{color: #ABB0C9;}
+	
+hr
+	{
+		clear: both;
+		color: #ABB0C9;
+	}
+
+#wrapper main, #wrapper nav
+	{
+		width:80%;
+		height: 100%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	
+/* #BaseEnd */
+
+/* Form website layout for form.html*/
+/* #FormStart */
+
+#submit:disabled,
+button[disabled]
+	{
+	  border: 1px solid #999999;
+	  background-color: #cccccc;
+	  color: #666666;
+	}
+
+/* #FormEnd */
+
+/* #HostStart */
+table{width: 90%; margin: auto; border-spacing: 0;}
+
+td {padding: 10px; border: 2px solid #574734; background-color: #A3896A}
+th {padding: 10px; border: 2px solid #574734; background-color: #705F49}
+
+input, select, button
+	{
+		background-color: #705F49;
+		border: 3px solid #705F49;
+		border-radius: 10px;
+		
+		color: white;
+		font-size: 1em;
+		
+		text-align: left;
+		width: 100%;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		text-align: center;
+	}
+
+#whpage{background-color: #7C454A;}

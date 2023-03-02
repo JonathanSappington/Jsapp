@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Turtle CO. Form</title>
+	<link href="styles.css" rel="stylesheet" media="screen">
+	<link href="print.css" rel="stylesheet" media="print">
+	<link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri&display=swap" rel="stylesheet"> 
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+	<!-- Centers Webpage Content -->
+	<div id="wrapper">
+
+		<h2>The Turtle Form Company</h2>
+		<!-- Navigation contains the links to other parts of the website-->
+		
+		<!-- Main Holds all important content -->
+		<main>
+			<hr>
+			<div class="Function">
+				<h2>Form Websites</h2>
+				<p class="comment">Form Links</p>
+					<div class="subject">
+						<a href="https://www.formassembly.com/blog/web-form-design/" target="_blank">www.formassembly.com</a>
+						<p>A site that focuses on the pitfalls of form design, emphasizing user convenience and proper formatting for questionnaires. 
+						The website had a handful of helpful tips, from input box size to more efficient formatting for text boxes like phone numbers and state names. 
+						It helped me visualize just how much effort and thought is needed when designing a form properly.</p>
+					</div>
+					<div class="subject">
+						<a href="http://particletree.com/features/10-tips-to-a-better-form/" target="_blank">www.particletree.com</a>
+						<p>A helpful page about ten tips for better form design, showcasing common tricks that developers tend to miss when working with HTML. 
+						I found a few interesting alternative form format elements like Mini Calendar and visual mapper 
+						making life a bit easier when dealing with more complex form elements.</p>
+					</div>
+				<hr>
+				<!-- Form part of the webpage -->
+				<h2>Turtle Newsletter Signup</h2>
+				<p class="comment">Fields marked with * are required</p>
+				<form id="myForm">
+					<label for="fname">*First Name:</label>
+					<input type="text" name="fname" id="fname" required>
+					<label for="lname">*Last Name:</label>
+					<input type="text" name="lname" id="lname" required>
+					<label for="email">*Email:</label>
+					<input type="text" name="email" id="email" required>
+					
+					<label>How many turtles would you consider buying?</label>
+					<div id="radioBtns">
+						<label for="select1"><input type="radio" id="select1" name="quantity" value="1">1</label>
+						<label for="select2"><input type="radio" id="select2" name="quantity" value="2"> 2</label>
+						<label for="select3"><input type="radio" id="select3" name="quantity" value="3"> 3</label>
+						<label for="select4"><input type="radio" id="select4" name="quantity" value="4"> 4</label>
+					</div>
+					
+					<br>
+					
+					<label for="region">Choose your favorite Turtle:</label>
+					<select name="region" id="region">
+						<option value="mud">Mud Turtle</option>
+						<option value="musk">Musk Turtle</option>
+						<option value="pitted shell">Pitted Shell Turtle</option>
+						<option value="pond">Pond Turtle</option>
+						<option value="chicken">Chicken Turtle</option>
+						<option value="painted">Painted Turtle</option>
+						<option value="terrapin">Terrapin</option>
+						<option value="sea">Sea Turtles </option>
+						<option value="side-necked">Side-Necked Turtle</option>
+						<option value="snake-necked">Snake-Necked Turtle</option>
+						<option value="snapping">Snapping Turtle</option>
+						<option value="softshell">Softshell Turtle</option>
+						<option value="Asian box">Asian Box Turtle</option>
+						<option value="tortoises">Tortoise</option>
+						<option value="pond">Pond Turtle</option>
+						<option value="spotted">Spotted Turtle</option>
+						<option value="wood">Wood Turtle</option>
+						<option value="North American box">North American Box Turtle</option>
+					</select> 
+					
+					<br>
+					<label for="acceptTerms">*<input type="checkbox" id="acceptTerms" name="acceptTerms" value="accepted" required> I agree to Turtle CO. Terms of Service and Privacy Policy</label>
+					<br>
+					<label for="recieve"><input type="checkbox" id="recieve" name="recieve" value="accepted"> I want to recieve newsletter updates from Turtle CO. by email</label>
+					<br>
+					<div class="jeff">
+						<input type="submit" value="Submit" id="submit">
+						<input type="reset">
+					</div>
+				</form>
+				<hr>
+			</div>
+		</main>
+
+		<!-- Contains extra facts and content -->
+		<footer>	
+			<p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Jonathan Sappington | All Rights Reserved</p>
+		</footer>
+	</div>
+</body>
+</html> 
