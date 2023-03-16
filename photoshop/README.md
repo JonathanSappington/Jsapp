@@ -1,1 +1,1 @@
-![alt text](https://github.com/JonathanSappington/Jsapp/blob/main/virtual-reality/Terrain/snap01.PNG?raw=true)
+![alt text](https://github.com/JonathanSappington/Jsapp/blob/main/photoshop/MagazineProject/MagazineProject_Finished_Web.jpg?raw=true)
