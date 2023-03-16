@@ -384,4 +384,3 @@ z = math.gcd(12,18)
 print(z)
 
 ```
-![alt text](https://github.com/JonathanSappington/Jsapp/blob/main/virtual-reality/Terrain/snap01.PNG?raw=true)
