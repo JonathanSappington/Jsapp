@@ -1,5 +1,5 @@
 # Jonathan Sappington - Portfolio
-Games, scripts, and anything inbetween! Which is quite fasciniating, what is inbetween scripts, and games.
+
 ## Introduction
 
 Welcome to my programming portfolio! Here you will find a collection of my best work and projects, showcasing my skills and experience as a programmer. From web development to data analysis, I have experience in a variety of programming languages and frameworks.
